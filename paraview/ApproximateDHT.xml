@@ -1,0 +1,119 @@
+<ServerManagerConfiguration>
+    <ProxyGroup name="filters">
+        <SourceProxy name="vtkApproximateDHT"
+                     class="vtkApproximateDHT"
+                     label="Approximate DHT">
+            <InputProperty
+                    name="Input"
+                    command="SetInputConnection"
+                    label="Vector Field">
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkImageData"/>
+                </DataTypeDomain>
+            </InputProperty>
+
+            <InputProperty
+                    name="InputSeeds"
+                    command="SetInputConnection"
+                    port_index="1"
+                    label="Initial Candidates">
+                <ProxyGroupDomain name="groups">
+                    <Group name="sources"/>
+                    <Group name="filters"/>
+                </ProxyGroupDomain>
+                <DataTypeDomain name="input_type">
+                    <DataType value="vtkPolyData"/>
+                </DataTypeDomain>
+            </InputProperty>
+
+            <StringVectorProperty
+                    name="SelectInputScalars"
+                    default_values="0"
+                    command="SetInputArrayToProcess"
+                    number_of_elements="5"
+                    element_types="0 0 0 0 2"
+                    label="Vectors">
+                <ArrayListDomain name="array_list"
+                                 input_domain_name="input_array">
+                    <RequiredProperties>
+                        <Property name="Input" function="Input"/>
+                    </RequiredProperties>
+                </ArrayListDomain>
+            </StringVectorProperty>
+
+            <IntVectorProperty
+                    name="NumberOfIterations"
+                    command="SetNumberOfIterations"
+                    label="Number Of Iterations"
+                    number_of_elements="1"
+                    default_values="2" />
+            <DoubleVectorProperty
+                    name="IterationTolerance"
+                    command="SetIterationTolerance"
+                    label="Iteration Tolerance"
+                    number_of_elements="1"
+                    default_values="1e-10" />
+
+            <DoubleVectorProperty
+                    name="AbsTol"
+                    command="SetAbsTol"
+                    label="Abs Tol"
+                    number_of_elements="1"
+                    default_values="1e-6" />
+            <DoubleVectorProperty
+                    name="RelTol"
+                    command="SetRelTol"
+                    label="Rel Tol"
+                    number_of_elements="1"
+                    default_values="1e-3" />
+            <DoubleVectorProperty
+                    name="MaxDtFactor"
+                    command="SetMaxDtFactor"
+                    label="Max Dt Factor"
+                    number_of_elements="1"
+                    default_values="1.0" />
+            <DoubleVectorProperty
+                    name="InitialDtFactor"
+                    command="SetInitialDtFactor"
+                    label="Initial Dt Factor"
+                    number_of_elements="1"
+                    default_values="0.1" />
+
+            <IntVectorProperty
+                    name="FixedPointMaxIterations"
+                    command="SetFixedPointMaxIterations"
+                    label="Fixed Point MaxIterations"
+                    number_of_elements="1"
+                    default_values="100" />
+            <DoubleVectorProperty
+                    name="FixedPointTolerance"
+                    command="SetFixedPointTolerance"
+                    label="Fixed Point Tolerance"
+                    number_of_elements="1"
+                    default_values="1e-10" />
+
+            <DoubleVectorProperty
+                    name="FixedPointConvergenceTolerance"
+                    command="SetFixedPointConvergenceTolerance"
+                    label="Fixed Point Convergence Tolerance"
+                    number_of_elements="1"
+                    default_values="1e-1" />
+
+            <DoubleVectorProperty
+                    name="SplitPrecisionThreshold"
+                    command="SetSplitPrecisionThreshold"
+                    label="Split Precision Threshold"
+                    number_of_elements="1"
+                    default_values="15.0" />
+
+
+            <Hints>
+                <ShowInMenu category="EuroVis 2020" />
+            </Hints>
+        </SourceProxy>
+    </ProxyGroup>
+</ServerManagerConfiguration>

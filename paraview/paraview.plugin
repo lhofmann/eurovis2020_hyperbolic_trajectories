@@ -1,0 +1,6 @@
+NAME
+  HyperbolicTrajectoriesPlugin
+DESCRIPTION
+  Hyperbolic Trajectories
+REQUIRES_MODULES
+  VTK::CommonCore
