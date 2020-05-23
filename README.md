@@ -1,4 +1,7 @@
 # Extraction of Distinguished Hyperbolic Trajectories for 2D Time-Dependent Vector Field Topology 
+
+[![CI](https://github.com/lhofmann/eurovis2020_hyperbolic_trajectories/workflows/CI/badge.svg)](https://github.com/lhofmann/eurovis2020_hyperbolic_trajectories/actions)
+
 Lutz Hofmann and Filip Sadlo, 
 Computer Graphics Forum, 
 Proceedings of EuroVis 2020.

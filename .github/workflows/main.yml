@@ -1,0 +1,17 @@
+name: CI
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run docker script
+      run: |
+        mkdir output
+        pushd output
+        /bin/bash ../docker.sh
+        popd
+    - uses: actions/upload-artifact@v2
+      with:
+        name: output
+        path: output/
